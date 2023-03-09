@@ -8,7 +8,7 @@ export const Game = () => {
 	return (
 		<>
 			<CanvasV2
-				list={gameState}
+				list={gameState.hitBoxes}
 				onHitCallback={(type) => console.log(type)}
 			/>
 			<GameControllers />

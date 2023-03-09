@@ -1,6 +1,7 @@
-import Report from "./report"
+import {Report} from "./report"
 import { randomInteger } from "../../../utils/randomInt";
-import { HitBox, HITBOX_TYPES } from "../../canvas/hit-box";
+import { HitBox } from "../../canvas/hit-box";
+import { HITBOX_TYPES } from "./hitbox";
 
 export class Game {
     
