@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-const StyledComponent = styled.span`
+const StyledComponent = styled.div`
   display: block;
-  width: ${(props) => props.width}px;
-  height: ${(props) => props.height}px;
-  background-color: ${(props) => props.color};
+  width: ${({ width }) => width}px;
+  height: ${({ height }) => height}px;
+  background-color: ${({ color }) => color};
 `;
 
 const Box = ({ color, width = 20, height = 20 }) => {
