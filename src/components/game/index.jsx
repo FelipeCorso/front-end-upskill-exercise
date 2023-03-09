@@ -11,7 +11,10 @@ export const Game = () => {
 				list={gameState.hitBoxes}
 				onHitCallback={(type) => console.log(type)}
 			/>
-			<GameControllers />
+			<GameControllers
+				startGame={gameState.startGame}
+				finishGame={gameState.finishGame}
+			/>
 			<Report
 				items={[
 					{

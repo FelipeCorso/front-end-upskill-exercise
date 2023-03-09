@@ -1,13 +1,13 @@
 import styled, { css } from "styled-components";
 
 const TYPE_MAP = {
-	l1: {
+	EASY: {
 		color: "green",
 	},
-	l2: {
+	MEDIUM: {
 		color: "blue",
 	},
-	l3: {
+	HARD: {
 		color: "red",
 	},
 };
