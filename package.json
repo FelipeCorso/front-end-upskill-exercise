@@ -18,7 +18,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "posttest": "npm run format",
+    "eject": "react-scripts eject",
+    "format": "prettier --loglevel warn --write \"**/*.{js,jsx,css,md}\""
   },
   "eslintConfig": {
     "extends": [
@@ -37,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prettier": ">=2"
   }
 }
