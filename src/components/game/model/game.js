@@ -11,7 +11,6 @@ export class Game {
 	hit = (hittedObject) => {
 		const clonedHittedObject = { ...hittedObject };
 		this.hittedHistory.push(clonedHittedObject);
-		console.log(clonedHittedObject);
 		delete this.hitboxes[clonedHittedObject.id];
 		this.report.addToReport(
 			this.hittedHistory[this.hittedHistory.length - 1],

@@ -5,27 +5,13 @@ const ReportLine = ({ item }) => {
 	const { color, hits, streak, avgClickTime } = item;
 
 	return (
-		<li>
+		<Container>
 			<Box color={color} />
 			<p>
-				Hits: {hits}, Streak: {streak}, Avg Click Time: {avgClickTime}
+				Hits: {hits}, Streak: {streak}, Avg Click Time: {avgClickTime}s
 			</p>
-		</li>
+		</Container>
 	);
-  
-  
-  
-  return (
-    <Container>
-      <Box color={color} />
-      <p>
-        Hits: {hits}, Streak: {streak}, Avg Click Time: {avgClickTime}s
-      </p>
-    </Container>
-  );
-  
-  
-  
 };
 
 export default ReportLine;
