@@ -2,6 +2,7 @@ import Report from "../../pages/report";
 import { CanvasV2 } from "../canvas/canvas-v2";
 import { GameControllers } from "../game-controllers";
 import { useGameState } from "./hooks/use-game-state";
+import { HITBOX_TYPES } from "./model/hitbox/types";
 
 export const Game = () => {
 	const gameState = useGameState();
@@ -9,19 +10,25 @@ export const Game = () => {
 		<>
 			<CanvasV2
 				list={gameState.hitBoxes}
-				onHitCallback={(type) => console.log(type)}
+				onHitCallback={gameState.onHitCallback}
 			/>
-			<GameControllers
-				startGame={gameState.startGame}
-				finishGame={gameState.finishGame}
-			/>
+			<GameControllers startGame={gameState.startGame} />
 			<Report
+				avgClickTime={gameState.report?.avgClickTime}
+				hits={gameState.report?.hits}
+				startTime={gameState.report?.startTimestamp}
 				items={[
 					{
+						color: "green",
+						streak: gameState.report?.streak[HITBOX_TYPES[0]],
+					},
+					{
+						color: "blue",
+						streak: gameState.report?.streak[HITBOX_TYPES[0]],
+					},
+					{
 						color: "red",
-						hits: 12,
-						streak: 10,
-						avgClickTime: "0.5s",
+						streak: gameState.report?.streak[HITBOX_TYPES[0]],
 					},
 				]}
 			/>

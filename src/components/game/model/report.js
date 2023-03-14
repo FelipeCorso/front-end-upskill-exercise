@@ -1,11 +1,4 @@
-import { HITBOX_TYPES } from "./hitbox";
-/*
-
-
-streak
-avg click time
-
-*/
+import { HITBOX_TYPES } from "./hitbox/types";
 
 export class Report {
 	constructor() {
@@ -24,9 +17,10 @@ export class Report {
 	};
 
 	compileReport = () => {
-		const avgClickTime = this.avgClickTime / this.hits - this.startTimestamp;
+		this.endTimestamp = Date.now();
+		this.avgClickTime = (this.endTimestamp - this.startTimestamp) / this.hits;
 		return {
-			avgClickTime,
+			avgClickTime: this.avgClickTime,
 			streak: { ...this.streak },
 			hits: this.hits,
 		};

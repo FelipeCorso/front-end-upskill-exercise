@@ -1,12 +1,12 @@
 import { Container } from "./styled";
 
-export const HitBox = ({ type, left, top, onHitCallback }) => (
+export const HitBox = ({ element, onHitCallback }) => (
 	<Container
-		type={type}
-		left={left}
-		top={top}
+		type={element.type}
+		left={element.x}
+		top={element.y}
 		onClick={() => {
-			onHitCallback(type);
+			onHitCallback(element);
 		}}
 	/>
 );

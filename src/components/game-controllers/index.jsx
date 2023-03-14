@@ -1,8 +1,7 @@
 import { Container } from "./styled";
 
-export const GameControllers = ({ startGame, finishGame }) => (
+export const GameControllers = ({ startGame }) => (
 	<Container>
-		<button onClick={finishGame}>Finish</button>
 		<button onClick={startGame}>Play</button>
 	</Container>
 );

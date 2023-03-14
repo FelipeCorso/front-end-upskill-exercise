@@ -1,17 +1,17 @@
 import { Report } from "./report";
-import { randomInteger } from "../../../utils/randomInt";
-import { HitBox } from "./hitbox";
-import { HITBOX_TYPES } from "./hitbox";
+import { HitBoxList } from "./hitbox-list";
 
 export class Game {
 	constructor() {
-		this.reset();
+		this.report = new Report();
+		this._hitboxList = new HitBoxList();
+		this.hittedHistory = [];
 	}
 
 	hit = (hittedObject) => {
 		const clonedHittedObject = { ...hittedObject };
 		this.hittedHistory.push(clonedHittedObject);
-		delete this.hitboxes[clonedHittedObject.id];
+		delete this._hitboxList._list[clonedHittedObject.id];
 		this.report.addToReport(
 			this.hittedHistory[this.hittedHistory.length - 1],
 			clonedHittedObject
@@ -20,21 +20,14 @@ export class Game {
 
 	startGame = () => {
 		this.reset();
-		this.report.reset();
-		this.createHitBoxes();
+		this.bootstrapHitboxes();
 	};
 
-	createHitBoxes = () => {
-		this.hitboxes = {};
-		const amountOfSquares = randomInteger(4, 43);
-		for (let i = 0; i < amountOfSquares; i++) {
-			this.hitboxes[i] = new HitBox(i, HITBOX_TYPES[randomInteger(0, 2)]);
-		}
-	};
+	bootstrapHitboxes = () => this._hitboxList.createHitBoxes();
 
 	reset = () => {
-		this.hitboxes = {};
 		this.hittedHistory = [];
-		this.report = new Report();
+		this.report.reset();
+		this._hitboxList.reset();
 	};
 }
