@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import Home from "./pages/home";
 import Report from "./pages/report";
@@ -9,6 +10,7 @@ import { NavBar } from "./components/navbar";
 function App() {
 	return (
 		<div className="App">
+			<div>hello</div>
 			<Router>
 				<div>
 					<NavBar />
