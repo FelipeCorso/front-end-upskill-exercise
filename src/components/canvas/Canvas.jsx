@@ -1,3 +1,5 @@
+import React from "react";
+
 const Canvas = ({ items, callback }) => {
 	const rects = items.map(({ color, x, y }) => (
 		<rect

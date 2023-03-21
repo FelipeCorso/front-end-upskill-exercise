@@ -1,5 +1,6 @@
 import { HitBox } from "./hit-box";
 import { Container } from "./styled-v2";
+import React from "react";
 
 export const CanvasV2 = ({ list = [], onHitCallback }) => {
 	return (

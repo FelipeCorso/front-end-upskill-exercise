@@ -1,10 +1,11 @@
 import ReportLine from "../report-line/ReportLine";
 import { H2 } from "../typography";
 import { Container } from "./styled";
+import React from "react";
 
 const Report = ({ items, date, hits, avgClickTime }) => {
 	return (
-		<Container> 
+		<Container>
 			<H2 text={`Report ${date}`} />
 			<p>
 				HITS: {hits}, AVG-CLICK-TIME: {avgClickTime}

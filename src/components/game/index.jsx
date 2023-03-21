@@ -1,3 +1,5 @@
+import React from "react";
+
 import Report from "../../pages/report";
 import { CanvasV2 } from "../canvas/canvas-v2";
 import { GameControllers } from "../game-controllers";

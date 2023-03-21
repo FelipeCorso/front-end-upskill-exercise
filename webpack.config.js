@@ -30,6 +30,7 @@ module.exports = (env, argv) => {
 							["@babel/preset-env", { targets: "defaults" }],
 							["@babel/preset-react"],
 						],
+						plugins: ["transform-es2015-modules-commonjs"],
 					},
 				},
 				{
@@ -47,10 +48,7 @@ module.exports = (env, argv) => {
 			}),
 			new ModuleFederationPlugin({
 				name: "container",
-				remotes: {
-					/* app1: "app1@http://localhost:3001/remoteEntry.js",
-					app2: "app2@http://localhost:3002/remoteEntry.js", */
-				},
+				filename: "remoteEntry.js",
 				/* shared: {
 					...deps,
 					react: { singleton: true, eager: true, requiredVersion: deps.react },
@@ -60,6 +58,10 @@ module.exports = (env, argv) => {
 						requiredVersion: deps["react-dom"],
 					},
 				}, */
+				exposes: {
+					// expose each component
+					"./Box": "./src/components/box/Box",
+				},
 			}),
 			new HtmlWebpackPlugin({
 				template: "./public/index.html",
